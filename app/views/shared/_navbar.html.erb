@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+      <div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <%= link_to "Home", root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Registro", clients_path, class: "nav-link" %>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>
+            <a href="<%= edit_user_registration_path %>" class="nav-link"><%= current_user.email %></a>|
+            <li class="nav-item">
+              <%= link_to "Logout", destroy_user_session_path, class: "nav-link", method: :delete %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Signup", new_user_registration_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+  </div>
+</nav>

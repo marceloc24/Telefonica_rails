@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @client %>
+
+<div>
+  <%= link_to "Edit this client", edit_client_path(@client) %> |
+  <%= link_to "Back to clients", clients_path %> |
+  <%= link_to "nueva llamada", new_client_call_path(@client) %> |
+  <%= link_to "llamadas", client_calls_path(@client) %> |
+
+  <%= button_to "Destroy this client", @client, method: :delete %>
+</div>

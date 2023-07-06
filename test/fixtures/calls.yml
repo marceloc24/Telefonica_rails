@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reason: MyString
+  date: 2023-07-06
+  client: one
+  user: one
+
+two:
+  reason: MyString
+  date: 2023-07-06
+  client: two
+  user: two

@@ -1,0 +1,34 @@
+<%= form_with(model: [@client, @call], url: client_calls_path(@client)) do |form| %>
+  <% if call.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(call.errors.count, "error") %> prohibited this call from being saved:</h2>
+
+      <ul>
+        <% call.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.collection_select :motive, @motives, :name, :name, prompt: 'Selecciona un motivo' %>
+  </div>
+
+  <div>
+    <%= form.label :date, style: "display: block" %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :client_id, value: @client.id %>
+  </div>
+
+  <div class = 'mb-3'>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
